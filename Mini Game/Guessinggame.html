@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            margin: 90 px;
+            padding: 10% ;
+        }
+    </style>
+</head>
+<body>
+<h1>Guessing Game</h1>
+<h4>Enter the number between 1-10</h4>
+Enter Guess: <input type="number"  id="inputValue">
+<input type ="submit" id="submitButton">
+<script>
+
+    
+        
+    let num= Math.floor(Math.random()*10)+1
+
+    let count=1
+
+    document.getElementById("submitButton").onclick=function(){
+       
+        let Userinput=document.getElementById("inputValue").value
+
+        if(Userinput>10 || Userinput<1){
+            alert("Please Enter a number within 1-10")
+
+        }
+
+        if(num==Userinput){
+            alert(`yay!!you guessed it right in ${count} attempt :)`)
+        
+        }else if(num>Userinput){
+            alert("Try a bigger number")
+            count++
+        
+        }else{
+            
+            alert("try a smaller number")
+            count++
+            
+        }
+    }
+    
+
+</script>
+
+</body>
+</html>
