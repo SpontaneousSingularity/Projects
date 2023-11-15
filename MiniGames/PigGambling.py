@@ -21,7 +21,7 @@ while True :
         print("!!! Enter a number !!!")
 
 
-
+#Get player names
 names = [0 for _ in range(players)]  # Initialize a list with a placeholder value
 i = 0
 while i < players:
@@ -31,7 +31,16 @@ while i < players:
 print("Player Names:", names)
 
 #set max score
-maxScore=int(input("maximums score: "))
+while True :
+    maxScore=input("Enter Target Score: ")
+    if maxScore.isdigit():
+        maxScore=int(maxScore)
+        break
+    else:
+        print("!!! Enter a number !!!")
+
+
+
 playerScores = [0 for _ in range(players)]
 
 
@@ -40,12 +49,12 @@ while max(playerScores) < maxScore:
     
    
     for playerindex in range(players):
-        print("\nplayer",playerindex+1,names[playerindex],"your turn has started\n")
+        print("\n\nplayer",playerindex+1,names[playerindex],"your turn has started\n")
         
         currentScore= 0
 
         while True:
-            ShouldRoll= input("would you like to roll (y)?")
+            ShouldRoll= input("would you like to roll (y)? : ")
             if ShouldRoll.lower() != "y":
                 break
             
@@ -61,7 +70,10 @@ while max(playerScores) < maxScore:
             print("your score is:",currentScore)
 
         playerScores[playerindex]+= currentScore
-        print("your total score is:",playerScores[playerindex])
+        if playerScores[playerindex] > maxScore:
+            print("\n!!! yay you won the game",names[playerindex],"!!!")
+       
+        print("\nyour total score is:",playerScores[playerindex])
 
 
         
